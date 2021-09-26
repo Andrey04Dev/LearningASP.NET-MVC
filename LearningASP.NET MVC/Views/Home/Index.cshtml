@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@Html.ActionLink("Mi Action", "MiAction", "Home", new { edad = 88 }, new { miAtributo = "valor1", @class = "btn btn-danger" });
+
+<h4>
+    @ViewBag.Message
+</h4>
+@model LearningASP.NET_MVC.Controllers.HomeController.Persona
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+            @Html.EditorForModel()
+    </div>
+    <input type="submit"  value="Enviar"/>
+}

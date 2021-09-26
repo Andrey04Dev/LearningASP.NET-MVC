@@ -1,0 +1,30 @@
+﻿@model List<LearningASP.NET_MVC.Models.Pelicula>
+
+@{
+    ViewBag.Title = "Contact";
+}
+<div>Mostrando @Model.Count peliculas</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Género</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pelicula in Model)
+        {
+            @*
+                Con esto se ponen comentarios en razon;
+                Si la película no esta cartelera se pone en rojo.
+            *@
+            var claseFila = !pelicula.EstaEnGaleria ? "danger" : string.Empty;
+            <tr class="@claseFila">
+                <td>@pelicula.Titulo</td>
+                <td>@pelicula.Genero</td>
+            </tr>
+        }
+    </tbody>
+     
+
+</table>
